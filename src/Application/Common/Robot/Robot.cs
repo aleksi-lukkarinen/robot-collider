@@ -2,7 +2,10 @@
 // Copyright (c) Aleksi Lukkarinen. All rights reserved.
 // </copyright>
 
-namespace ColliderApp;
+namespace ColliderApp.Common.Robot;
+
+using ColliderApp.Common.Collider;
+using ColliderApp.Common.Utils;
 
 
 internal class Robot {

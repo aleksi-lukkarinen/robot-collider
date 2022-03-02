@@ -1,7 +1,7 @@
-using ColliderApp;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace ApplicationTests;
+
+using ColliderApp.Common.Utils;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
 [TestClass]

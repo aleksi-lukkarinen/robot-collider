@@ -2,10 +2,13 @@
 // Copyright (c) Aleksi Lukkarinen. All rights reserved.
 // </copyright>
 
-namespace ColliderApp;
+namespace ColliderApp.Common.Collider;
 
 using System.IO;
-
+using ColliderApp.Common.Exceptions;
+using ColliderApp.Common.Map;
+using ColliderApp.Common.Robot;
+using ColliderApp.Common.Utils;
 
 internal class Collider {
     private const int MaxAllowedSteps = 999;

@@ -2,7 +2,7 @@
 // Copyright (c) Aleksi Lukkarinen. All rights reserved.
 // </copyright>
 
-namespace ColliderApp;
+namespace ColliderApp.Common.Map;
 
 using System.IO;
 using System.Reflection;

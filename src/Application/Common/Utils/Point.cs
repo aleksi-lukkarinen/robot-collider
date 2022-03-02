@@ -2,7 +2,9 @@
 // Copyright (c) Aleksi Lukkarinen. All rights reserved.
 // </copyright>
 
-namespace ColliderApp;
+using ColliderApp.Common.Collider;
+
+namespace ColliderApp.Common.Utils;
 
 
 public class Point {

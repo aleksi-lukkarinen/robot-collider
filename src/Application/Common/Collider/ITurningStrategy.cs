@@ -2,7 +2,7 @@
 // Copyright (c) Aleksi Lukkarinen. All rights reserved.
 // </copyright>
 
-namespace ColliderApp;
+namespace ColliderApp.Common.Collider;
 
 
 internal interface ITurningStrategy {

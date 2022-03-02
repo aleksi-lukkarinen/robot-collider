@@ -2,7 +2,7 @@
 // Copyright (c) Aleksi Lukkarinen. All rights reserved.
 // </copyright>
 
-namespace ColliderApp;
+namespace ColliderApp.Common.Collider;
 
 
 internal class RightTurnStrategy : ITurningStrategy {

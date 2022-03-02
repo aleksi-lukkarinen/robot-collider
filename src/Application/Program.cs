@@ -5,6 +5,9 @@
 namespace ColliderApp;
 
 using System.IO;
+using ColliderApp.Common.Collider;
+using ColliderApp.Common.Exceptions;
+using ColliderApp.Common.Map;
 
 
 public class Program {
