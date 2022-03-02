@@ -5,7 +5,10 @@
 namespace ColliderApp;
 
 
-internal class StartingPositionNotFoundException : Exception {
+internal class StartingPositionNotFoundException : ColliderException {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="StartingPositionNotFoundException"/> class.
+    /// </summary>
     public StartingPositionNotFoundException()
         : base("Invalid map: Starting position was not found.") {
     }

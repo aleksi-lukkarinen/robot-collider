@@ -26,9 +26,7 @@ public class Program {
             collider.Execute();
         }
         catch (Exception e) {
-            if (e is MaximumStepsExceededException
-                || e is StartingPositionNotFoundException) {
-
+            if (e is ColliderException) {
                 errorStram.WriteLine(e.Message);
                 Environment.Exit(RetValFailure);
             }

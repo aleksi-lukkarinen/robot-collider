@@ -13,6 +13,11 @@ internal class WorldMap {
     private readonly int mapCode;
     private readonly string[] mapData;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="WorldMap"/> class.
+    /// </summary>
+    /// <param name="mapCode"></param>
+    /// <param name="mapData"></param>
     public WorldMap(
         int mapCode,
         string[] mapData) {

@@ -11,6 +11,10 @@ using System.Reflection;
 internal class MapDataLoader {
     private readonly string relativePathToMapDataFile;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MapDataLoader"/> class.
+    /// </summary>
+    /// <param name="relativePathToMapDataFile"></param>
     public MapDataLoader(string relativePathToMapDataFile) {
         this.relativePathToMapDataFile = relativePathToMapDataFile;
     }

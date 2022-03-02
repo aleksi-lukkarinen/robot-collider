@@ -5,7 +5,11 @@
 namespace ColliderApp;
 
 
-public class MaximumStepsExceededException : Exception {
+public class MaximumStepsExceededException : ColliderException {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MaximumStepsExceededException"/> class.
+    /// </summary>
+    /// <param name="maxAllowedSteps"></param>
     public MaximumStepsExceededException(int maxAllowedSteps)
         : base(CreateMessage(maxAllowedSteps)) {
     }
