@@ -10,6 +10,7 @@ using ColliderApp.Common.Map;
 using ColliderApp.Common.Robot;
 using ColliderApp.Common.Utils;
 
+
 internal class Collider {
     private const int MaxAllowedSteps = 999;
 

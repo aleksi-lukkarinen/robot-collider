@@ -2,7 +2,7 @@
 // Copyright (c) Aleksi Lukkarinen. All rights reserved.
 // </copyright>
 
-namespace ColliderApp.Common.Collider;
+namespace ColliderApp.Common.Utils;
 
 
 public enum Direction {
