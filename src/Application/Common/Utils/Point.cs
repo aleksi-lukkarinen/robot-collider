@@ -5,7 +5,7 @@
 namespace ColliderApp;
 
 
-internal class Point {
+public class Point {
     /// <summary>
     /// Initializes a new instance of the <see cref="Point"/> class.
     /// </summary>
