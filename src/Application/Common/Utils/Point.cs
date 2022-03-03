@@ -2,8 +2,6 @@
 // Copyright (c) Aleksi Lukkarinen. All rights reserved.
 // </copyright>
 
-using ColliderApp.Common.Collider;
-
 namespace ColliderApp.Common.Utils;
 
 
@@ -21,6 +19,12 @@ public class Point {
     public int X { get; }
 
     public int Y { get; }
+
+    public override bool Equals(object? obj) {
+        return obj is Point point &&
+               X == point.X &&
+               Y == point.Y;
+    }
 
     public Point Next(Direction direction) {
         return direction switch {
