@@ -8,7 +8,7 @@ using ColliderApp.Common.Exceptions;
 using ColliderApp.Common.Utils;
 
 
-internal class WorldMap {
+public class WorldMap {
     private const char StartCharacter = 'S';
     private const char EndCharacter = 'E';
     private const char ObstacleCharacter = '#';

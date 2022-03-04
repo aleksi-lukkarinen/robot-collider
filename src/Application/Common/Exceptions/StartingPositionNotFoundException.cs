@@ -5,7 +5,7 @@
 namespace ColliderApp.Common.Exceptions;
 
 
-internal class StartingPositionNotFoundException : ColliderException {
+public class StartingPositionNotFoundException : ColliderException {
     /// <summary>
     /// Initializes a new instance of the <see cref="StartingPositionNotFoundException"/> class.
     /// </summary>

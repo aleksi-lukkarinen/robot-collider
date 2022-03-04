@@ -1,4 +1,4 @@
-namespace ApplicationTests;
+namespace ColliderApp.Common.Utils.Tests;
 
 using System.Collections.Generic;
 using ColliderApp.Common.Utils;
@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
 [TestClass]
-public class PointTests {
+public class Point_Tests {
     private readonly static int testX = 1;
     private readonly static int testY = 2;
 
