@@ -18,12 +18,17 @@ internal class RightTurnStrategy : ITurningStrategy {
     /// </summary>
     /// <param name="currentDirection">The current direction.</param>
     /// <returns>The direction to the right regarding the current direction.</returns>
+    /// <exception cref="NotImplementedException">
+    /// Thrown if the <paramref name="currentDirection"/> is given an unknown value.
+    /// </exception>
     public Direction NextDirection(Direction currentDirection) {
         return currentDirection switch {
             Direction.Up => Direction.Right,
             Direction.Right => Direction.Down,
             Direction.Down => Direction.Left,
-            _ => Direction.Up,
+            Direction.Left => Direction.Up,
+
+            _ => throw new NotImplementedException(),
         };
     }
 }
