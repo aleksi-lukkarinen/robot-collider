@@ -33,6 +33,7 @@ public class Point {
     /// <summary>
     /// Calculates the next point in the given direction.
     /// </summary>
+    /// <remarks>X coordinates increase rightwards; Y coordinates increase downwards.</remarks>
     /// <param name="direction">The direction of the requested point.</param>
     /// <returns>A new <see cref="Point"/> instance that represents the requested point.</returns>
     /// <exception cref="NotImplementedException">
