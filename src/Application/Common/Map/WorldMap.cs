@@ -13,7 +13,6 @@ internal class WorldMap {
     private const char EndCharacter = 'E';
     private const char ObstacleCharacter = '#';
 
-    private readonly int mapCode;
     private readonly string[] mapData;
 
     /// <summary>
@@ -25,15 +24,17 @@ internal class WorldMap {
         int mapCode,
         string[] mapData) {
 
-        this.mapCode = mapCode; // TODO: Validate
         this.mapData = mapData; // TODO: Validate
+        MapCode = mapCode; // TODO: Validate
+
+        StartingPoint = FindStartPosition();
     }
 
-    public int MapCode {
-        get { return mapCode; }
-    }
+    public int MapCode { get; }
 
-    public Point FindStartPosition() {
+    public Point StartingPoint { get; }
+
+    private Point FindStartPosition() {
         int row = -1;
         int column = -1;
 

@@ -54,9 +54,7 @@ internal class Collider {
     }
 
     private Robot NewRobot() {
-        return Robot.Create(
-            map.FindStartPosition(),
-            startDirection);
+        return Robot.Create(map.StartingPoint, startDirection);
     }
 
     private void Walk() {
