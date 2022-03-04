@@ -64,6 +64,14 @@ public class Point {
     }
 
     /// <summary>
+    /// Computes a hash code for this <see cref="Point"/>.
+    /// </summary>
+    /// <returns>A hash code for this <see cref="Point"/>.</returns>
+    public override int GetHashCode() {
+        return HashCode.Combine(X, Y);
+    }
+
+    /// <summary>
     /// Returns a string that represents this <see cref="Point"/>.
     /// The format of the string is <c>(X, Y)</c>.
     /// </summary>
