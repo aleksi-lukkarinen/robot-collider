@@ -9,9 +9,9 @@ using ColliderApp.Common.Utils;
 
 
 internal class WorldMap {
-    private const char CharStart = 'S';
-    private const char CharEnd = 'E';
-    private const char CharObstacle = '#';
+    private const char StartCharacter = 'S';
+    private const char EndCharacter = 'E';
+    private const char ObstacleCharacter = '#';
 
     private readonly int mapCode;
     private readonly string[] mapData;
@@ -39,7 +39,7 @@ internal class WorldMap {
 
         while (column < 0 && (row + 1) < mapData.Length) {
             row += 1;
-            column = mapData[row].IndexOf(CharStart);
+            column = mapData[row].IndexOf(StartCharacter);
         }
 
         if (column < 0) {
@@ -50,11 +50,11 @@ internal class WorldMap {
     }
 
     public bool EndingExistsAt(Point position) {
-        return CharAt(position) == CharEnd;
+        return CharAt(position) == EndCharacter;
     }
 
     public bool ObstacleExistsAt(Point position) {
-        return CharAt(position) == CharObstacle;
+        return CharAt(position) == ObstacleCharacter;
     }
 
     public char CharAt(Point position) {
