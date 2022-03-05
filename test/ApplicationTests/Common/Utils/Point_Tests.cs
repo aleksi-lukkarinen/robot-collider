@@ -1,4 +1,5 @@
 namespace ColliderApp.Common.Utils.Tests;
+
 using ColliderApp.Common.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,19 +12,19 @@ public class Point_Tests {
     private readonly static Point testPoint = new(testX, testY);
 
 
-    [TestMethod]
-    public void Represents_Correct_Coordinates() {
+    [TestMethod("Represents correct coordinates")]
+    public void RepresentsCorrectCoordinates() {
         Assert.AreEqual(testX, testPoint.X);
         Assert.AreEqual(testY, testPoint.Y);
     }
 
-    [TestMethod]
-    public void String_Representation_Is_Correct() {
+    [TestMethod("String representation is correct")]
+    public void StringRepresentationIsCorrect() {
         Assert.AreEqual("(1, 2)", testPoint.ToString());
     }
 
-    [TestMethod]
-    public void Equality_Is_Determined_Correctly() {
+    [TestMethod("Equality is determined correctly")]
+    public void EqualityIsDeterminedCorrectly() {
         (bool, Point, Point)[] cases = {
             ( true, testPoint, testPoint ),
             ( true, new Point(testX, testY), testPoint ),
@@ -37,8 +38,8 @@ public class Point_Tests {
         }
     }
 
-    [TestMethod]
-    public void Adjacent_Coordinates_Are_Correct() {
+    [TestMethod("Adjacent coordinates are correct")]
+    public void AdjacentCoordinatesAreCorrect() {
         (Point, Point)[] cases = {
             ( new Point(testX - 1, testY), testPoint.Next(Direction.Left) ),
             ( new Point(testX + 1, testY), testPoint.Next(Direction.Right) ),

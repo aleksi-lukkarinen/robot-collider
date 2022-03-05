@@ -26,28 +26,28 @@ public class WorldMap_Simple_Content_Tests {
 
     private readonly static WorldMap testMap = new(testMapCode, testMapData);
 
-    [TestMethod]
-    public void EndingExists_Finds_Ending() {
+    [TestMethod("EndingExists() returns true for an ending")]
+    public void EndingExistsFindsEnding() {
         Assert.IsTrue(testMap.EndingExistsAt(endingPosition));
     }
 
-    [TestMethod]
-    public void EndingExists_Returns_False_For_NonEnding() {
+    [TestMethod("EndingExists() returns false for a non-ending")]
+    public void EndingExistsReturnsFalseForNonEnding() {
         Assert.IsFalse(testMap.EndingExistsAt(startingPosition));
     }
 
-    [TestMethod]
-    public void ObstacleExists_Finds_Obstacle() {
+    [TestMethod("ObstacleExists() returns true for an obstacle")]
+    public void ObstacleExistsFindsObstacle() {
         Assert.IsTrue(testMap.ObstacleExistsAt(obstaclePosition));
     }
 
-    [TestMethod]
-    public void ObstacleExists_Returns_False_For_NonObstacle() {
+    [TestMethod("ObstacleExists() returns false for a non-obstacle")]
+    public void ObstacleExistsReturnsFalseForNonObstacle() {
         Assert.IsFalse(testMap.ObstacleExistsAt(startingPosition));
     }
 
-    [TestMethod]
-    public void CharAt_Finds_Correct_Characters() {
+    [TestMethod("CharAt() finds correct characters")]
+    public void CharAtFindsCorrectCharacters() {
         Assert.AreEqual(startingChar, testMap.CharAt(startingPosition));
         Assert.AreEqual(endingChar, testMap.CharAt(endingPosition));
         Assert.AreEqual(obstacleChar, testMap.CharAt(obstaclePosition));
