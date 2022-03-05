@@ -12,18 +12,18 @@ public class Point_Tests {
     private readonly static Point testPoint = new(testX, testY);
 
 
-    [TestMethod("Represents correct coordinates")]
+    [TestMethod("Represents the X and Y coordinates given to it")]
     public void RepresentsCorrectCoordinates() {
         Assert.AreEqual(testX, testPoint.X);
         Assert.AreEqual(testY, testPoint.Y);
     }
 
-    [TestMethod("String representation is correct")]
+    [TestMethod("String representation is of form (X, Y)")]
     public void StringRepresentationIsCorrect() {
         Assert.AreEqual("(1, 2)", testPoint.ToString());
     }
 
-    [TestMethod("Equality is determined correctly")]
+    [TestMethod("Two Points are equal only when the X and Y coordinates are equal")]
     public void EqualityIsDeterminedCorrectly() {
         (bool, Point, Point)[] cases = {
             ( true, testPoint, testPoint ),
@@ -38,7 +38,7 @@ public class Point_Tests {
         }
     }
 
-    [TestMethod("Adjacent coordinates are correct")]
+    [TestMethod("Adjacent coordinates are correctly computed")]
     public void AdjacentCoordinatesAreCorrect() {
         (Point, Point)[] cases = {
             ( new Point(testX - 1, testY), testPoint.Next(Direction.Left) ),
