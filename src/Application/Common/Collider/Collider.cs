@@ -6,7 +6,7 @@ namespace ColliderApp.Common.Collider;
 
 using ColliderApp.Common.Exceptions;
 using ColliderApp.Common.Map;
-using ColliderApp.Common.Robot;
+using ColliderApp.Common.Tokens;
 using ColliderApp.Common.Utils;
 
 
@@ -19,7 +19,7 @@ internal class Collider {
     private readonly Direction startDirection;
     private readonly ITurningStrategy turningStrategy;
 
-    private Robot robot;
+    private RobotToken robot;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Collider"/> class.
@@ -52,8 +52,8 @@ internal class Collider {
         robot = NewRobot();
     }
 
-    private Robot NewRobot() {
-        return Robot.Create(map.StartingPoint, startDirection);
+    private RobotToken NewRobot() {
+        return RobotToken.Create(map.StartingPoint, startDirection);
     }
 
     private void Walk() {

@@ -2,13 +2,13 @@
 // Copyright (c) Aleksi Lukkarinen. All rights reserved.
 // </copyright>
 
-namespace ColliderApp.Common.Robot;
+namespace ColliderApp.Common.Tokens;
 
 using ColliderApp.Common.Utils;
 
 
-internal class Robot {
-    private Robot(
+internal class RobotToken {
+    private RobotToken(
         int steps,
         Point position,
         Direction direction) {
@@ -24,25 +24,25 @@ internal class Robot {
 
     public Direction Direction { get; }
 
-    public static Robot Create(
+    public static RobotToken Create(
         Point position,
         Direction direction) {
 
-        return new Robot(
+        return new RobotToken(
             steps: 0,
             position,
             direction);
     }
 
-    public Robot Advance() {
+    public RobotToken Advance() {
         int newSteps = Steps + 1;
         Point newPosition = Position.Next(Direction);
 
-        return new Robot(newSteps, newPosition, Direction);
+        return new RobotToken(newSteps, newPosition, Direction);
     }
 
-    public Robot TurnTo(Direction newDirection) {
-        return new Robot(Steps, Position, newDirection);
+    public RobotToken TurnTo(Direction newDirection) {
+        return new RobotToken(Steps, Position, newDirection);
     }
 
     /// <inheritdoc/>
