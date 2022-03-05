@@ -5,7 +5,7 @@
 namespace ColliderApp.Common.Exceptions;
 
 
-public class ColliderException : Exception {
+internal class ColliderException : Exception {
     /// <summary>
     /// Initializes a new instance of the <see cref="ColliderException"/> class.
     /// </summary>

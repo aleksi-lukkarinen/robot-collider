@@ -9,7 +9,7 @@ namespace ColliderApp.Common.Utils;
 /// Enum <see cref="Direction"/> models the possibility to chooce
 /// one of four directions: up, right, down, and left.
 /// </summary>
-public enum Direction {
+internal enum Direction {
     /// <summary>Represents upwards direction.</summary>
     Up = 0,
 

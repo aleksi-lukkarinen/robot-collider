@@ -9,7 +9,7 @@ namespace ColliderApp.Common.Utils;
 /// The <see cref="Point"/> class represents
 /// an immutable two-dimensional integer coordinate pair.
 /// </summary>
-public class Point {
+internal class Point {
     /// <summary>
     /// Initializes a new instance of the <see cref="Point"/> class.
     /// </summary>

@@ -5,7 +5,7 @@
 namespace ColliderApp.Common.Exceptions;
 
 
-public class MaximumStepsExceededException : ColliderException {
+internal class MaximumStepsExceededException : ColliderException {
     /// <summary>
     /// Initializes a new instance of the <see cref="MaximumStepsExceededException"/> class.
     /// </summary>
