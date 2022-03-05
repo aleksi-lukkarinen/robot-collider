@@ -4,7 +4,6 @@
 
 namespace ColliderApp.Common.Collider;
 
-using System.IO;
 using ColliderApp.Common.Exceptions;
 using ColliderApp.Common.Map;
 using ColliderApp.Common.Robot;
@@ -14,7 +13,7 @@ using ColliderApp.Common.Utils;
 internal class Collider {
     private const int MaxAllowedSteps = 999;
 
-    private readonly TextWriter outputStram;
+    private readonly ApplicationContext appCtx;
 
     private readonly WorldMap map;
     private readonly Direction startDirection;
@@ -33,14 +32,14 @@ internal class Collider {
         WorldMap map,
         Direction startDirection,
         ITurningStrategy turningStrategy,
-        TextWriter outputStram) {
+        ApplicationContext applicationContext) {
 
         this.map = map;
         this.startDirection = startDirection;
         this.turningStrategy = turningStrategy;
         robot = NewRobot();
 
-        this.outputStram = outputStram;
+        appCtx = applicationContext;
     }
 
     public void Execute() {
@@ -63,7 +62,7 @@ internal class Collider {
                 break;
             }
 
-            outputStram.WriteLine($"{robot} @ {map.CharAt(robot.Position)}");
+            appCtx.OutputStream.WriteLine($"{robot} @ {map.CharAt(robot.Position)}");
 
             TurnIfNecessary();
             robot = robot.Advance();
@@ -75,9 +74,9 @@ internal class Collider {
             throw new MaximumStepsExceededException(MaxAllowedSteps);
         }
 
-        outputStram.WriteLine($"{robot} @ {map.CharAt(robot.Position)}");
-        outputStram.WriteLine();
-        outputStram.WriteLine($"Answer: {map.MapCode}:{robot.Steps}");
+        appCtx.OutputStream.WriteLine($"{robot} @ {map.CharAt(robot.Position)}");
+        appCtx.OutputStream.WriteLine();
+        appCtx.OutputStream.WriteLine($"Answer: {map.MapCode}:{robot.Steps}");
     }
 
     private void TurnIfNecessary() {

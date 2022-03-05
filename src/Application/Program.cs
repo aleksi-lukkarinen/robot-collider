@@ -3,8 +3,6 @@
 // </copyright>
 
 namespace ColliderApp;
-
-using System.IO;
 using ColliderApp.Common.Collider;
 using ColliderApp.Common.Exceptions;
 using ColliderApp.Common.Map;
@@ -16,26 +14,40 @@ public class Program {
 
     private const string DataFileName = @"Data\MapData.txt";
 
+    private Program() {
+    }
+
     public static void Main() {
+        Program p = new();
+        p.Run();
+    }
+
+    private void Run() {
+        ApplicationContext appCtx = PrepareAppContext();
         Direction startDirection = Direction.Up;
         ITurningStrategy turningStrategy = new RightTurnStrategy();
-        TextWriter outputStram = Console.Out;
-        TextWriter errorStram = Console.Error;
 
         try {
             MapDataLoader mapDataLoader = new(DataFileName);
             WorldMap map = mapDataLoader.Load();
-            Collider collider = new(map, startDirection, turningStrategy, outputStram);
+            Collider collider = new(map, startDirection, turningStrategy, appCtx);
 
             collider.Execute();
         }
         catch (Exception e) {
             if (e is ColliderException) {
-                errorStram.WriteLine(e.Message);
+                appCtx.ErrorStream.WriteLine(e.Message);
                 Environment.Exit(RetValFailure);
             }
 
             throw;
         }
+    }
+
+    private ApplicationContext PrepareAppContext() {
+        ApplicationContext ctx = new ApplicationContext(
+            Console.Out, Console.Error);
+
+        return ctx;
     }
 }
