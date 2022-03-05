@@ -27,7 +27,7 @@ internal class Collider {
     /// <param name="map"></param>
     /// <param name="startDirection"></param>
     /// <param name="turningStrategy"></param>
-    /// <param name="outputStram"></param>
+    /// <param name="applicationContext"></param>
     public Collider(
         WorldMap map,
         Direction startDirection,
