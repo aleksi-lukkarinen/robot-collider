@@ -20,4 +20,8 @@ internal class RobotTokenActionStep : IRobotTokenAction {
     }
 
     public Point Location { get; }
+
+    public override string? ToString() {
+        return $"[Step to {Location}]";
+    }
 }

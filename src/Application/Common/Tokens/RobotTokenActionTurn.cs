@@ -20,4 +20,8 @@ internal class RobotTokenActionTurn : IRobotTokenAction {
     }
 
     public Direction Towards { get; }
+
+    public override string? ToString() {
+        return $"[Turn: {Towards}]";
+    }
 }

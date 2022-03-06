@@ -3,6 +3,8 @@
 // </copyright>
 
 namespace ColliderApp;
+
+using Application.Common.Tokens;
 using ColliderApp.Common.Collider;
 using ColliderApp.Common.Exceptions;
 using ColliderApp.Common.Map;
@@ -11,6 +13,8 @@ using ColliderApp.Common.Utils;
 
 public class Program {
     private const int RetValFailure = 1;
+
+    private const int MaxAllowedSteps = 999;
 
     private const string DataFileName = @"Data\MapData.txt";
 
@@ -32,7 +36,15 @@ public class Program {
             WorldMap map = mapDataLoader.Load();
             Collider collider = new(map, startDirection, turningStrategy, appCtx);
 
-            collider.Execute();
+            collider.Execute(MaxAllowedSteps);
+
+            foreach (IRobotTokenAction a in collider.Actions) {
+                appCtx.OutputStream.WriteLine(a);
+            }
+
+            appCtx.OutputStream.WriteLine();
+            appCtx.OutputStream.WriteLine($"Answer: {map.MapCode}:{collider.Steps}");
+
         }
         catch (Exception e) {
             if (e is ColliderException) {

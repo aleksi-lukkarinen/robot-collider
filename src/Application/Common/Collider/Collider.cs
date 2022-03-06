@@ -4,6 +4,7 @@
 
 namespace ColliderApp.Common.Collider;
 
+using System.Collections.Immutable;
 using ColliderApp.Common.Exceptions;
 using ColliderApp.Common.Map;
 using ColliderApp.Common.Tokens;
@@ -11,8 +12,6 @@ using ColliderApp.Common.Utils;
 
 
 internal class Collider {
-    private const int MaxAllowedSteps = 999;
-
     private readonly ApplicationContext appCtx;
 
     private readonly WorldMap map;
@@ -20,6 +19,14 @@ internal class Collider {
     private readonly ITurningStrategy turningStrategy;
 
     private RobotToken robot;
+
+    public ImmutableList<Application.Common.Tokens.IRobotTokenAction> Actions {
+        get { return robot.Actions; }
+    }
+
+    public int Steps {
+        get { return robot.Steps; }
+    }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Collider"/> class.
@@ -42,10 +49,9 @@ internal class Collider {
         appCtx = applicationContext;
     }
 
-    public void Execute() {
+    public void Execute(int maxAllowedSteps) {
         CreateNewRobot();
-        Walk();
-        PrintResults();
+        Walk(maxAllowedSteps);
     }
 
     private void CreateNewRobot() {
@@ -56,27 +62,19 @@ internal class Collider {
         return RobotToken.Create(map.StartingPoint, startDirection);
     }
 
-    private void Walk() {
-        while (robot.Steps <= MaxAllowedSteps) {
+    private void Walk(int maxAllowedSteps) {
+        while (robot.Steps < maxAllowedSteps) {
             if (map.EndingExistsAt(robot.Position)) {
                 break;
             }
 
-            appCtx.OutputStream.WriteLine($"{robot} @ {map.CharAt(robot.Position)}");
-
             TurnIfNecessary();
             robot = robot.Advance();
         }
-    }
 
-    private void PrintResults() {
-        if (robot.Steps > MaxAllowedSteps) {
-            throw new MaximumStepsExceededException(MaxAllowedSteps);
+        if (!map.EndingExistsAt(robot.Position)) {
+            throw new MaximumStepsExceededException(maxAllowedSteps);
         }
-
-        appCtx.OutputStream.WriteLine($"{robot} @ {map.CharAt(robot.Position)}");
-        appCtx.OutputStream.WriteLine();
-        appCtx.OutputStream.WriteLine($"Answer: {map.MapCode}:{robot.Steps}");
     }
 
     private void TurnIfNecessary() {
